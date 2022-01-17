@@ -35,7 +35,7 @@ namespace Hotel.WebAPI.Middlewares
 
             switch (exception)
             {
-                case NoBookException ex:
+                case NoHotelException ex:
                     context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     message = ex.Message;
                     break;

@@ -1,5 +1,8 @@
 using Hotel.WebAPI.Infrastructure.Database;
+using Hotel.WebAPI.Interfaces;
+using Hotel.WebAPI.Mappings;
 using Hotel.WebAPI.Middlewares;
+using Hotel.WebAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("HotelDatabase");
 
 builder.Services.AddDbContext<HotelDbContext>(options => options.UseMySql(connectionString, new MariaDbServerVersion("10.6")));
+builder.Services.AddScoped<IHotelService, HotelService>();
+builder.Services.AddAutoMapper(typeof(AutoMappings));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

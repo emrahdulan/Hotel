@@ -1,5 +1,5 @@
-﻿//using Hotel.WebAPI.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Hotel.WebAPI;
 
 
 namespace Hotel.WebAPI.Infrastructure.Database
@@ -12,6 +12,6 @@ namespace Hotel.WebAPI.Infrastructure.Database
         }
 
         // ovdje dodati DbSet-ove za entitete
-        // public DbSet<Entity> Entities {get; set;}
+        public DbSet<Entities.Hotel> Hotels { get; set; }
     }
 }
