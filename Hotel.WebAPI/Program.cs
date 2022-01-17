@@ -1,4 +1,5 @@
 using Hotel.WebAPI.Infrastructure.Database;
+using Hotel.WebAPI.Middlewares;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +23,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler();
+    app.UseMiddleware<ExceptionMiddleware>();
 }
 
 app.UseSwagger();
