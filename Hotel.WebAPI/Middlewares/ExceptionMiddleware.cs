@@ -39,6 +39,14 @@ namespace Hotel.WebAPI.Middlewares
                     context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     message = ex.Message;
                     break;
+                case NoReservationException ex:
+                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    message = ex.Message;
+                    break;
+                case NoInvoiceException ex:
+                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    message = ex.Message;
+                    break;
                 default:
                     context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     break;
