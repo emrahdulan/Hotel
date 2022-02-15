@@ -14,6 +14,9 @@ builder.Services.AddDbContext<HotelDbContext>(options => options.UseMySql(connec
 builder.Services.AddScoped<IHotelService, HotelService>();
 builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 builder.Services.AddScoped<IReservationService, ReservationService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IGuestService, GuestService>();
+builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddAutoMapper(typeof(AutoMappings));
 
 builder.Services.AddControllers();
