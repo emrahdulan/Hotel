@@ -21,6 +21,18 @@ namespace Hotel.WebAPI.Mappings
             CreateMap<Invoice, InvoiceDto>();
             CreateMap<InvoiceInsertDto, Invoice>();
             CreateMap<InvoiceUpdateDto, Invoice>();
+            
+            CreateMap<Room, RoomDto>();
+            CreateMap<RoomInsertDto, Room>();
+            CreateMap<RoomUpdateDto, Room>();
+            
+            CreateMap<Employee, EmployeeDto>();
+            CreateMap<EmployeeInsertDto, Employee>();
+            CreateMap<EmployeeUpdateDto, Employee>();
+            
+            CreateMap<Guest, GuestDto>();
+            CreateMap<GuestInsertDto, Guest>();
+            CreateMap<GuestUpdateDto, Guest>();
         }
     }
 }
