@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+
+using AutoMapper;
 using Hotel.WebAPI.Common;
-using Hotel.WebAPI.Dto.ReservationDto;
-using Hotel.WebAPI.Entities;
+using Hotel.WebAPI.Dto.HotelDto;
 using Hotel.WebAPI.Exceptions;
 using Hotel.WebAPI.Infrastructure.Database;
 using Hotel.WebAPI.Interfaces;
@@ -20,6 +20,7 @@ namespace Hotel.WebAPI.Services
             _mapper = mapper;
             _logger = logger;
         }
+
         public bool DeleteReservation(int id)
         {
             var dbReservation = _context.Reservations.FirstOrDefault(x => x.Id == id);
@@ -32,6 +33,18 @@ namespace Hotel.WebAPI.Services
             _context.Reservations.Remove(dbReservation);
 
             return _context.SaveChanges() > 0;
+        }
+
+        public ReservationDto GetReservationById(int id)
+        {
+            var dbReservation = _context.Reservations.FirstOrDefault(x => x.Id == id);
+
+            if (dbReservation == null)
+            {
+                throw new NoReservationException("Rezervacija ne postoji");
+            }
+
+            return _mapper.Map<ReservationDto>(dbReservation);
         }
 
         public PagedResult<ReservationDto> GetListOfReservations(ReservationSearchDto searchDto)
@@ -71,10 +84,16 @@ namespace Hotel.WebAPI.Services
             var dbReservation = _mapper.Map<Reservation>(insertDto);
             _context.Reservations.Add(dbReservation);
             _context.SaveChanges();
+
             return _mapper.Map<ReservationDto>(dbReservation);
         }
 
         public ReservationDto UpdateReservation(int id, ReservationUpdateDto updateDto)
+        {
+            return _mapper.Map<HotelDto>(dbReservation);
+        }
+
+        public ReservationDto UpdateHotel(int id, ReservationUpdateDto updateDto)
         {
             _logger.LogInformation($"Izmjena rezervacije sa id {id}");
 

@@ -1,6 +1,6 @@
 namespace Hotel.WebAPI.Dto.ReservationDto
 {
-    public class ReservationInsertDto
+    public class ReservationDto
     {
         public int Id { get; set; }
         public int RoomId { get; set; }

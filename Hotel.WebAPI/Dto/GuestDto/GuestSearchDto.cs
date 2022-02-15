@@ -1,6 +1,6 @@
-namespace Hotel.WebAPI.Dto.ReservationDto
+﻿namespace Hotel.WebAPI.Dto.GuestDto
 {
-    public class ReservationSearchDto
+    public class GuestSearchDto
     {
         /// <summary>
         /// Broj rezultata po stranici
@@ -15,3 +15,4 @@ namespace Hotel.WebAPI.Dto.ReservationDto
         public string? Name { get; set; }
     }
 }
+

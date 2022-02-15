@@ -1,4 +1,5 @@
-﻿using Hotel.WebAPI.Common;
+using Hotel.WebAPI.Common;
+
 using Hotel.WebAPI.Dto.ReservationDto;
 
 namespace Hotel.WebAPI.Interfaces

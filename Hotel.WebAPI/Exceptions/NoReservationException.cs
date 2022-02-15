@@ -1,4 +1,5 @@
-﻿namespace Hotel.WebAPI.Exceptions
+namespace Hotel.WebAPI.Exceptions
+
 {
     [Serializable]
     public class NoReservationException : Exception
