@@ -17,6 +17,7 @@ namespace Hotel.WebAPI.Infrastructure.Database
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Entities.Room> Roms { get; set; }
         public DbSet<Entities.Employee> Employees { get; set; }
+        public DbSet<Guest> Guests { get; set; }
     }
     
 }
