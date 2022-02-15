@@ -1,3 +1,4 @@
+
 using AutoMapper;
 using Hotel.WebAPI.Common;
 using Hotel.WebAPI.Dto.HotelDto;
@@ -66,11 +67,29 @@ namespace Hotel.WebAPI.Services
             return result;
         }
 
-        public ReservationDto InsertHotel(ReservationInsertDto insertDto)
+        public ReservationDto GetReservationById(int id)
+        {
+            var dbReservation = _context.Reservations.FirstOrDefault(x => x.Id == id);
+
+            if (dbReservation == null)
+            {
+                throw new NoReservationException("Rezervacija ne postoji");
+            }
+
+            return _mapper.Map<ReservationDto>(dbReservation);
+        }
+
+        public ReservationDto InsertReservation(ReservationInsertDto insertDto)
         {
             var dbReservation = _mapper.Map<Reservation>(insertDto);
             _context.Reservations.Add(dbReservation);
             _context.SaveChanges();
+
+            return _mapper.Map<ReservationDto>(dbReservation);
+        }
+
+        public ReservationDto UpdateReservation(int id, ReservationUpdateDto updateDto)
+        {
             return _mapper.Map<HotelDto>(dbReservation);
         }
 

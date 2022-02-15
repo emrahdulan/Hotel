@@ -1,4 +1,5 @@
 namespace Hotel.WebAPI.Exceptions
+
 {
     [Serializable]
     public class NoReservationException : Exception
@@ -11,5 +12,3 @@ namespace Hotel.WebAPI.Exceptions
           System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }
 }
-
-

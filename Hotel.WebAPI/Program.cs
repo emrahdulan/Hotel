@@ -12,6 +12,8 @@ var connectionString = builder.Configuration.GetConnectionString("HotelDatabase"
 
 builder.Services.AddDbContext<HotelDbContext>(options => options.UseMySql(connectionString, new MariaDbServerVersion("10.6")));
 builder.Services.AddScoped<IHotelService, HotelService>();
+builder.Services.AddScoped<IInvoiceService, InvoiceService>();
+builder.Services.AddScoped<IReservationService, ReservationService>();
 builder.Services.AddAutoMapper(typeof(AutoMappings));
 
 builder.Services.AddControllers();
